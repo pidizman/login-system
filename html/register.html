@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Filipos register</title>
+      <style>
+        body{
+        font: 1.2em sans-serif;
+        background-color: #464D54;
+        color: white;
+      }
+      
+      .app{
+        position: relative;
+        top: 220px;
+        left: 80px;
+        zoom: 250%;
+
+        background-color: #353A3E;
+
+        /*border: 2px solid #2D3237;*/
+        border-radius: 0.45em;
+        border-top: 0.55rem solid #3579F6;
+        
+        width: 35rem;
+        height: 45rem;
+      }
+
+        .filipos{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        
+        font-size: 35px;
+      }
+
+      .text{
+        font-size: 15px;
+
+        display: flex;
+        justify-content: center;
+      }
+
+      .line{
+        border: 1px solid #2D3237;
+
+        width: 34.7rem;
+      }
+
+      .input{
+        position: relative;
+        left: 35px;
+        top: 7px;
+        padding: 7px;
+
+        border: 1.5px solid #2D3237;
+
+        background-color: #353A3E;
+        color: white;
+      }
+
+      .btn{
+        position: relative;
+        left: 125px;
+        top: -10px;
+        font-size: 0.8rem;
+
+        color: white;
+        border: 1px solid #2D3237;
+        border-radius: 0.7rem;
+        background-color: #3579F6;
+
+        width: 13rem;
+        height: 6rem;
+      }
+
+      .login{
+        position: relative;
+        top: -37px;
+        left: 15px;
+
+        width: 11rem;
+
+        display: flex;
+        text-align: start;
+
+        color: white;
+      }
+
+      .txt{
+        color: red;
+        font-size: 13px; 
+        visibility: hidden;
+
+        position: relative;
+        left: 37px;
+        top: 5px;
+      }
+      </style>
+    </head>
+
+    <body>
+      <div class="app">
+       <a class="filipos">Filipos</a> 
+        <hr class="line"></hr>
+        <a class="text">Zde se zaregistruj!</a>
+        <form method="post">
+          <input class="input" id="name" name="name" type="text" placeholder="Username">
+          <br>
+          <input class="input" name="password1" id="pass1" type="password" placeholder="Password">
+          <br>
+          <input class="input" name="password2" id="pass2" type="password" placeholder="Password again">
+          <br>
+          <a id="txt" class="txt"></a>
+          <br></br>
+          <button id="btn" class="btn">Register!</button>
+          <a href="/" class="login">Login</a>
+        </form>
+      </div>
+      
+      <script>
+        const name = document.getElementById("name");
+    const btn = document.getElementById("btn");
+    const password1 = document.getElementById("pass1");
+    const password2 = document.getElementById("pass2");
+    const txt = document.getElementById("txt");
+      
+
+    btn.addEventListener('click', (event) => {
+      const nameValue = name.value;
+      const pass1Value = password1.value;
+      const pass2Value = password2.value;
+
+      if(!pass1Value || !pass2Value){
+        txt.style.visibility = "visible";
+        txt.innerHTML = "Please enter the password"
+        event.preventDefault();
+      }
+
+      //if(!pass2Value){
+      //  txt.style.visibility = "visible";
+      //  txt.innerHTML = "Please enter the password";
+
+      //  event.preventDefault();
+      //}
+
+      if(!nameValue){
+       txt.style.visibility = "visible";
+       txt.innerHTML = "Please enter username"
+       event.preventDefault();
+     }
+
+     if(pass1Value !== pass2Value){
+       txt.style.visiblity = "visible";
+       txt.innerHTML = "Passwords none same"
+       event.preventDefault();
+     }
+    });
+      </script>
+    </body>
+  </html>

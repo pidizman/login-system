@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <title>Filipos login</title>
+    <style>
+      body{
+        font: 1.2em sans-serif;
+        background-color: #464D54;
+        color: white;
+      }
+      
+      .app{
+        position: relative;
+        top: 220px;
+        left: 80px;
+        zoom: 250%;
+
+        background-color: #353A3E;
+
+        /*border: 2px solid #2D3237;*/
+        border-radius: 0.45em;
+        border-top: 0.55rem solid #3579F6;
+        
+        width: 35rem;
+        height: 45rem;
+      }
+
+      .filipos{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        
+        font-size: 35px;
+      }
+
+      .text{
+        font-size: 15px;
+
+        display: flex;
+        justify-content: center;
+      }
+
+      .line{
+        border: 1px solid #2D3237;
+
+        width: 34.7rem;
+      }
+
+      .input{
+        position: relative;
+        left: 35px;
+        top: 15px;
+        padding: 7px;
+
+        border: 1.5px solid #2D3237;
+
+        background-color: #353A3E;
+        color: white;
+      }
+
+      .btn{
+        position: relative;
+        left: 150px;
+        top: 30px;
+        font-size: 0.8rem;
+
+        color: white;
+        border: 1px solid #2D3237;
+        border-radius: 0.7rem;
+        background-color: #3579F6;
+
+        width: 10rem;
+        height: 6rem;
+      }
+
+      .register{
+        position: relative;
+        top: 1px;
+        left: 10px;
+
+        width: 11rem;
+
+        display: flex;
+        text-align: start;
+
+        color: white;
+      }
+
+      .txt{
+        color: red;
+        font-size: 13px; 
+        visibility: hidden;
+
+        position: relative;
+        left: 40px;
+        top: 15px;
+      }
+    </style>
+</head>
+  <body>
+      <div class="app">
+    <a class="filipos">Filipos</a>
+    <hr class="line"></hr>
+    <a class="text">Zde se přihlaš!</a>
+   <form method="post">
+     <input class="input" id="name" type="text" name="name" placeholder="Username">
+     <br>
+     <input class="input" type="password" name="password" id="password" placeholder="Password">
+     <br>
+     <a id="txt" class="txt"></a>
+     <br>
+     <button id="btn" class="btn">Login</button>
+     <a href="/register" class="register">Register</a>
+   </form>
+  </div>
+
+
+    <script>
+    const name = document.getElementById("name")
+    const btn = document.getElementById("btn");
+    const password = document.getElementById("password");
+    const txt = document.getElementById("txt");
+      
+
+   btn.addEventListener('click', (event) => {
+
+    const nameValue = name.value;
+    const passValue = password.value;
+
+     if(!passValue){
+       txt.style.visibility = "visible";
+       txt.innerHTML = "Please enter the password"
+       event.preventDefault();
+     }
+
+     if(!nameValue){
+       txt.style.visibility = "visible";
+       txt.innerHTML = "Please enter username"
+       event.preventDefault();
+     }
+   });
+
+    </script>
+  </body>
+</html>
